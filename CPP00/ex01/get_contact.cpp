@@ -6,72 +6,122 @@
 /*   By: psychom <psychom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:26:25 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/09/22 11:22:33 by psychom          ###   ########.fr       */
+/*   Updated: 2022/09/23 08:36:13 by psychom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-int check_argument(std::string str)
+int getFirstName(phonebook *contact, char c)
 {
-    if (str == "")
+    int i;
+    if (c == 'f')
+        i = contact->index;
+    else
     {
-        std::cout << "$> Can't save empty field" << std::endl;
-        return (EXIT_FAILURE);
+        i = contact->index_two;
+        std::cout << "here is i = " << i << std::endl;
     }
+    std::cout <<  "$> first name:" << std::endl << "=> : ";
+    while (getline(std::cin, contact->first_name[i]))
+    {
+        if (contact->first_name[i] == "")
+           std::cout <<  "$> first name:" << std::endl << "=> : "; 
+        else
+            return (EXIT_SUCCESS);
+    }
+    return (EXIT_FAILURE);
     
-    return (EXIT_SUCCESS);
 }
-
+int getLastName(phonebook *contact, char c)
+{
+    int i;
+    if (c == 'f')
+        i = contact->index;
+    else
+        i = contact->index_two;
+    std::cout <<  "$> last name:" << std::endl << "=> : ";
+    while (getline(std::cin, contact->last_name[i]))
+    {
+        if (contact->last_name[i] == "")
+            std::cout <<  "$> last name:" << std::endl << "=> : ";
+        else
+            return (EXIT_SUCCESS);
+    }
+    return (EXIT_FAILURE);
+}
+int getNickName(phonebook *contact, char c)
+{
+    int i;
+    if (c == 'f')
+        i = contact->index;
+    else
+        i = contact->index_two;
+    std::cout <<  "$> nick name:" << std::endl << "=> : ";
+    while (getline(std::cin, contact->nickname[i]))
+    {
+        if (contact->nickname[i] == "")
+            std::cout <<  "$> nick name:" << std::endl << "=> : ";
+        else
+            return (EXIT_SUCCESS);
+    }
+    return (EXIT_FAILURE);
+}
+int getNumberPhone(phonebook *contact, char c)
+{
+    int i;
+    if (c == 'f')
+        i = contact->index;
+    else
+        i = contact->index_two;
+    std::cout <<  "$> number phone:" << std::endl << "=> : ";
+    while (getline(std::cin, contact->phone_number[i]))
+    {
+        if (contact->phone_number[i] == "")
+            std::cout <<  "$> number phone:" << std::endl << "=> : ";
+        else
+            return (EXIT_SUCCESS);
+    }
+    return (EXIT_FAILURE);
+}
+int getDarckestSecret(phonebook *contact, char c)
+{
+    int i;
+    if (c == 'f')
+        i = contact->index;
+    else
+        i = contact->index_two;
+    std::cout <<  "$> darkest secret:" << std::endl << "=> : ";
+    while (getline(std::cin, contact->darkest_secret[i]))
+    {
+        if (contact->darkest_secret[i] == "")
+            std::cout <<  "$> darkest secret:" << std::endl << "=> : ";
+        else
+            return (EXIT_SUCCESS);
+    }
+    return (EXIT_FAILURE);
+}
 void get_contact(phonebook *contact)
 {
+    char c;
+    
+    c = 'f';
     if (contact->index == 8)
-    {
-        get_new_list(contact);
-        return;
-    }
-    int i = contact->index;
-    int run;
-    run = 1;
-    while (run == 1)
-    {
-        std::cout <<  "$> first name:" << std::endl << "=> : ";
-        
-        getline(std::cin, contact->first_name[i]);
-        if (check_argument(contact->first_name[i]) == EXIT_SUCCESS)
-            run++;
-    }
-    while (run == 2)
-    {
-        std::cout <<  "$> last name:" << std::endl << "=> : ";
-        getline(std::cin, contact->last_name[i]);
-        if (check_argument(contact->last_name[i]) == EXIT_SUCCESS)
-            run++;
-            
-    }
-    while (run == 3)
-    {
-        std::cout <<  "$> nickname:" << std::endl << "=> : ";
-        getline(std::cin, contact->nickname[i]);
-        if (check_argument(contact->nickname[i]) == EXIT_SUCCESS)
-            run++;
-    }
-    while (run == 4)
-    {
-        std::cout <<  "$> number phone:" << std::endl << "=> : ";
-        getline(std::cin, contact->phone_number[i]);
-        if (check_argument(contact->phone_number[i]) == EXIT_SUCCESS)
-            run++;
-    }
-    while (run == 5)
-    {
-        std::cout <<  "$> darkest secret:" << std::endl << "=> : ";
-        getline(std::cin, contact->darkest_secret[i]);
-        if (check_argument(contact->darkest_secret[i]) == EXIT_SUCCESS)
-            run++;
-        
-    }
-    contact->index++;
+        c = 's';
+    if (getFirstName(contact, c) == EXIT_FAILURE)
+        contact->end();
+    if (getLastName(contact, c) == EXIT_FAILURE)
+        contact->end();
+    if (getNickName(contact, c) == EXIT_FAILURE)
+        contact->end();
+    if (getNumberPhone(contact, c) == EXIT_FAILURE)
+        contact->end();
+    if (getDarckestSecret(contact, c) == EXIT_FAILURE)
+        contact->end();
+    if (c == 'f')
+        contact->index++;
+    else
+        contact->index_two++;
     std::cout << "# The contact has been added successfully" << std::endl;
     
 }

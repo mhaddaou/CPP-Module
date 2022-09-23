@@ -6,15 +6,15 @@
 /*   By: psychom <psychom@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 00:42:37 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/09/22 12:35:10 by psychom          ###   ########.fr       */
+/*   Updated: 2022/09/23 08:37:08 by psychom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
-#include <algorithm>
 
 void    print_contact (phonebook *contact, int index)
 {
+    index--;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
     std::cout << "| first name : " << contact->first_name[index] << std::endl;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
@@ -27,29 +27,55 @@ void    print_contact (phonebook *contact, int index)
     std::cout << "| darkest secret : " << contact->darkest_secret[index]<< std::endl;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
 }
-
-
-void show_contact(phonebook *contact)
+int checkIsNotInt(std::string str)
 {
-    int check;
-    int index;
-    while (1)
+    int i = 0;
+
+    while (i < str.length())
     {
-        std::cout << "$> Enter Index to display Informations or 0 to Exit" << std::endl << "=> : ";
-        std::cin >> check;
-        if (check == 0)
-        {
-            std::cin.clear();
-            std::cin.ignore();
-            break;
-        }
+        if (!isdigit(str[i]))
+            return (EXIT_FAILURE);
+        i++;
+    }
+    return (EXIT_SUCCESS);
+}
+
+
+int show_contact(phonebook *contact)
+{
+    std::string  check;
+    int         number;
+    char        *che;
+    
+    che = &check[0];
+    std::cout << "$> Enter Index to display Informations or 0 to Exit" << std::endl << "=> : ";
+    while (getline(std::cin, check))
+    {
+        if (check == "")
+            std::cout << "=> : ";
         else
         {
-            index = check - 1;
-            print_contact(contact, index);
+            if (checkIsNotInt(check) == EXIT_FAILURE)
+            {
+                std::cout << "found character this input only integer" << std::endl;
+                show_contact(contact);
+            }
+            number = atoi(che);
+            if (number == 0)
+                return (EXIT_SUCCESS);
+            if (number > contact->index || number < 0)
+            {
+                std::cout << "Not Found any contact in this index " << std::endl;
+                show_contact(contact);
+            }
+            if (number < 9)
+            {
+                print_contact(contact, number);
+                return (EXIT_SUCCESS);
+            }
         }
     }
-    
+    return (EXIT_FAILURE);
 }
 
 void print_long(std::string str)
@@ -69,7 +95,7 @@ void    printSizeMoreThanTen(std::string str)
     std::cout << std::right << std::setw(16) << s1 << ".";
 }
 
-void get_list(phonebook *contact)
+int get_list(phonebook *contact)
 {
     int         i;
     std::string str;
@@ -78,7 +104,7 @@ void get_list(phonebook *contact)
     if (contact->index == 0)
     {
         std::cout << "$> please add contact before searching" << std::endl;
-        return;
+        return (EXIT_SUCCESS);
     }
     std::cout << " ---------------------------------------------------------------- "<< std::endl;
     std::cout << "| INDEX |    FIRST NAME    |    LAST NAME     |     NICKNAME     |" << std::endl;
@@ -104,5 +130,7 @@ void get_list(phonebook *contact)
         std::cout << " ---------------------------------------------------------------- "<< std::endl;    
         i++;
     }
-    show_contact(contact);
+    if (show_contact(contact))
+        return (EXIT_FAILURE);
+    return (EXIT_SUCCESS);
 }
