@@ -5,26 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/24 12:58:35 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/09/24 12:58:37 by mhaddaou         ###   ########.fr        #
+#    Created: 2022/09/24 14:44:33 by mhaddaou          #+#    #+#              #
+#    Updated: 2022/09/24 14:53:02 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-SRC = get_contact.cpp get_list.cpp phonebook.cpp
+SRC = src/main.cpp src/Zombie.cpp src/zombieHorde.cpp
 OBJ = $(SRC:.cpp=.o)
 
-CC = clang++
-HEADER = phonebook.hpp
 RM = rm -rf
+CC = clang++
 FLAGS = -Wall -Wextra -Werror
 
-NAME = awesome
+NAME = zombieHorde
+HEADER = include/Zombie.hpp
 
 all: ${NAME}
 
 ${NAME} : ${OBJ} ${HEADER}
-		${CC} ${FLAGS} -o ${NAME} ${OBJ} 
+		${CC} ${FLAGS} -o ${NAME} ${OBJ}
 
 clean:
 	${RM} ${OBJ}
@@ -32,4 +31,4 @@ clean:
 fclean: clean
 	${RM} ${NAME}
 
-re : fclean all
+re: fclean all
