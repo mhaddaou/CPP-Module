@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_contact.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psychom <psychom@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:26:25 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/09/23 08:36:13 by psychom          ###   ########.fr       */
+/*   Updated: 2022/10/02 17:23:37 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,11 @@ void get_contact(phonebook *contact)
     
     c = 'f';
     if (contact->index == 8)
+    {
+        if (contact->index_two == 8)
+            contact->index_two = 0;
         c = 's';
+    }
     if (getFirstName(contact, c) == EXIT_FAILURE)
         contact->end();
     if (getLastName(contact, c) == EXIT_FAILURE)
