@@ -6,7 +6,7 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 23:26:25 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/02 17:23:37 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/04 21:09:40 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int getFirstName(phonebook *contact, char c)
     if (c == 'f')
         i = contact->index;
     else
-    {
         i = contact->index_two;
-        std::cout << "here is i = " << i << std::endl;
-    }
     std::cout <<  "$> first name:" << std::endl << "=> : ";
     while (getline(std::cin, contact->first_name[i]))
     {

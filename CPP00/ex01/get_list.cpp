@@ -6,7 +6,7 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:29:21 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/02 17:29:29 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/04 21:57:11 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,36 +43,34 @@ int checkIsNotInt(std::string str)
 
 int show_contact(phonebook *contact)
 {
-    std::string  check;
-    int         number;
-    char        *che;
+    int number;
+    std::string check;
     
-    che = &check[0];
     std::cout << "$> Enter Index to display Informations or 0 to Exit" << std::endl << "=> : ";
-    while (getline(std::cin, check))
+    while (true)
     {
-        if (check == "")
+        getline(std::cin, check);
+        number = atoi(&check[0]);
+        if (std::cin.eof() == 1)
+            return (EXIT_FAILURE);
+        else if (check == "")
             std::cout << "=> : ";
-        else
+        else if (checkIsNotInt(check) == EXIT_FAILURE)
         {
-            if (checkIsNotInt(check) == EXIT_FAILURE)
-            {
-                std::cout << "found character this input only integer" << std::endl;
-                show_contact(contact);
-            }
-            number = atoi(che);
-            if (number == 0)
-                return (EXIT_SUCCESS);
-            if (number > contact->index || number < 0)
-            {
-                std::cout << "Not Found any contact in this index " << std::endl;
-                show_contact(contact);
-            }
-            if (number < 9)
-            {
-                print_contact(contact, number);
-                return (EXIT_SUCCESS);
-            }
+            std::cout << "found character this input only integer" << std::endl;
+            std::cout << "=> : ";
+        }
+        else if (number == 0)
+            return (EXIT_SUCCESS);
+        else if (number > contact->index || number < 0)
+        {
+            std::cout << "Not Found any contact in this index " << std::endl;
+            std::cout << "=> : ";
+        }
+        else if (number < 9)
+        {
+            print_contact(contact, number);
+            return (EXIT_SUCCESS);
         }
     }
     return (EXIT_FAILURE);
