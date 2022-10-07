@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:42:49 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/07 18:03:34 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/07 16:21:51 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Sed{
 
 
 //function
-void readAndRemplaceFile(Sed *sed);
-
+int         readAndRemplaceFile(Sed *sed);
+int         checkS1AndS2(Sed *sed);
+std::string searchAndReplace(std::string contenteFile, Sed *sed);
 #endif

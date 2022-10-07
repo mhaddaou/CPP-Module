@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:20:03 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/07 18:04:13 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/07 16:40:50 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,17 @@ std::string Sed::getFileName()
 {
     return (this->filename);
 }
+
 std::string Sed::getS1()
 {
     return (this->s1);
 }
+
 std::string Sed::getS2()
 {
     return (this->s2);
 }
+
 bool Sed::is_empty(std::ifstream& pFile)
 {
     return pFile.peek() == std::ifstream::traits_type::eof();
