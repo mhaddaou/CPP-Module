@@ -6,7 +6,7 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:29:52 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/02 17:29:55 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:51:08 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,36 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+#include "contact.hpp"
 
-class phonebook
+class Phonebook
 {
-    public:
+    private:
         int index;
         int index_two;
-        std::string first_name[8];
-        std::string last_name[8];
-        std::string nickname[8];
-        std::string phone_number[8];
-        std::string darkest_secret[8];
-        void end (void){
-            std::cout << std::endl << "GOODBYE!" << std::endl;
-            exit(0);
-        }
-    private:
-    
+        Contact contacts[8];
+    public:
+        Phonebook();
+        void setContacts();
+        std::string getFirstName(int index);
+        std::string getLastName(int index);
+        std::string getNickName(int index);
+        std::string getPhoneNumber(int index);
+        std::string getDarckestSecret(int index);
+        int getIndex();
+        void end();
+        ~Phonebook();
 };
 
-//function
+void    checkCommand(std::string command, Phonebook *contact);
+int     get_list(Phonebook *phonebook);
+void    printSizeMoreThanTen(std::string str);
+int     show_contact(Phonebook *contact);
+void    print_contact (Phonebook *contact, int index);
+int     checkIsNotInt(std::string str);
 
-void    get_contact(phonebook *contact);
-int     check_argument(std::string str);
-void    get_new_list(phonebook *contact);
-int     get_list(phonebook *contact);
-int     show_contact(phonebook *contact);
-void    print_space(int len_space);
-void    contunued(phonebook *contact, int i, int run);
-void    print_contact (phonebook *contact, int index);
-void    checkCommand(std::string command, phonebook *contact);
+
+
+
 
 #endif

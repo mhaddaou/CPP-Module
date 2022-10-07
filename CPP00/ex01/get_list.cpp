@@ -6,32 +6,33 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:29:21 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/04 21:57:11 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:51:00 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
+#include "contact.hpp"
 
-void    print_contact (phonebook *contact, int index)
+void    print_contact (Phonebook *contact, int index)
 {
     index--;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
-    std::cout << "| first name : " << contact->first_name[index] << std::endl;
+    std::cout << "| first name : " << contact->getFirstName(index) << std::endl;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
-    std::cout << "| last name : " << contact->last_name[index] << std::endl;
+    std::cout << "| last name : " << contact->getLastName(index) << std::endl;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
-    std::cout << "| nickname : " << contact->nickname[index] << std::endl;
+    std::cout << "| nickname : " << contact->getNickName(index) << std::endl;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
-    std::cout << "| number phone : " << contact->phone_number[index] << std::endl;
+    std::cout << "| number phone : " << contact->getPhoneNumber(index) << std::endl;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
-    std::cout << "| darkest secret : " << contact->darkest_secret[index]<< std::endl;
+    std::cout << "| darkest secret : " << contact-> getDarckestSecret(index) << std::endl;
     std::cout <<" -------------------------------------------------------------------"<< std::endl;
 }
 int checkIsNotInt(std::string str)
 {
     int i = 0;
 
-    while (i < str.length())
+    while (i < (int)str.length())
     {
         if (!isdigit(str[i]))
             return (EXIT_FAILURE);
@@ -41,11 +42,13 @@ int checkIsNotInt(std::string str)
 }
 
 
-int show_contact(phonebook *contact)
+int show_contact(Phonebook *contact)
 {
     int number;
+    int index;
     std::string check;
     
+    index = contact->getIndex();
     std::cout << "$> Enter Index to display Informations or 0 to Exit" << std::endl << "=> : ";
     while (true)
     {
@@ -62,7 +65,7 @@ int show_contact(phonebook *contact)
         }
         else if (number == 0)
             return (EXIT_SUCCESS);
-        else if (number > contact->index || number < 0)
+        else if (number > index || number < 0)
         {
             std::cout << "Not Found any contact in this index " << std::endl;
             std::cout << "=> : ";
@@ -76,16 +79,6 @@ int show_contact(phonebook *contact)
     return (EXIT_FAILURE);
 }
 
-void print_long(std::string str)
-{
-    int i = 0;
-    while (i < 9)
-    {
-        std::cout << str[i];
-        i++;
-    }
-    std::cout << ". ";
-}
 void    printSizeMoreThanTen(std::string str)
 {
     std::string s1;
@@ -93,13 +86,14 @@ void    printSizeMoreThanTen(std::string str)
     std::cout << std::right << std::setw(16) << s1 << ".";
 }
 
-int get_list(phonebook *contact)
+int get_list(Phonebook *phonebook)
 {
     int         i;
-    std::string str;
+    int index;
     
+    index = phonebook->getIndex();
     i = 0;
-    if (contact->index == 0)
+    if (index == 0)
     {
         std::cout << "$> please add contact before searching" << std::endl;
         return (EXIT_SUCCESS);
@@ -107,28 +101,28 @@ int get_list(phonebook *contact)
     std::cout << " ---------------------------------------------------------------- "<< std::endl;
     std::cout << "| INDEX |    FIRST NAME    |    LAST NAME     |     NICKNAME     |" << std::endl;
     std::cout << " ---------------------------------------------------------------- "<< std::endl;
-    while (i < contact->index)
+    while (i < index)
     {
         std::cout << "|   " << i + 1 << "   | ";
-        if (contact->first_name[i].length() > 10)
-            printSizeMoreThanTen(contact->first_name[i]);
+        if (phonebook->getFirstName(i).length() > 10)
+            printSizeMoreThanTen(phonebook->getFirstName(i));
         else
-            std::cout << std::left << std::setw(17) << contact->first_name[i];
+            std::cout << std::left << std::setw(17) << phonebook->getFirstName(i);
         std::cout << "| ";
-        if (contact->last_name[i].length() > 10)
-            printSizeMoreThanTen(contact->last_name[i]);
+        if (phonebook->getLastName(i).length() > 10)
+            printSizeMoreThanTen(phonebook->getLastName(i));
         else
-            std::cout << std::left << std::setw(17) << contact->last_name[i];
+            std::cout << std::left << std::setw(17) << phonebook->getLastName(i);
         std::cout << "| ";
-        if (contact->nickname[i].length() > 10)
-            printSizeMoreThanTen(contact->nickname[i]);
+        if (phonebook->getNickName(i).length() > 10)
+            printSizeMoreThanTen(phonebook->getNickName(i));
         else
-            std::cout << std::left << std::setw(17) << contact->nickname[i];
+            std::cout << std::left << std::setw(17) << phonebook->getNickName(i);
         std::cout << "|" << std::endl;
         std::cout << " ---------------------------------------------------------------- "<< std::endl;    
         i++;
     }
-    if (show_contact(contact))
+    if (show_contact(phonebook))
         return (EXIT_FAILURE);
     return (EXIT_SUCCESS);
 }
