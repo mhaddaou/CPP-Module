@@ -6,7 +6,7 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 01:17:59 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/05 01:39:28 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/07 13:28:57 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ std::string Weapon::getType()
 {
     return (this->_type);
 }
+
 Weapon::Weapon(std::string type)
 {
     setType(type);
-    std::cout << getType() << std::endl;
 }
