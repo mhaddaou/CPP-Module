@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:46:09 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/07 16:40:03 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/08 15:34:49 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
-#include <cstdlib>
 
 std::string searchAndReplace(std::string contenteFile, Sed *sed)
 {

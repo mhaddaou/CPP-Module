@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:05:21 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/07 18:45:54 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/08 15:01:41 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void Harl::debug(void)
     std::cout << "[ DEBUG ]" << std::endl;
     std::cout << "I love having extra bacon for my 7XL"
                 << "-double-cheese-triple-pickle-specialketchup burger."
-                    <<  "I really do!" << std::endl;
+                    <<  "I really do!\n" << std::endl;
 }
 
 void Harl::info(void)
@@ -27,7 +27,7 @@ void Harl::info(void)
     std::cout << "[ INFO ]" << std::endl;
     std::cout << "I cannot believe adding extra bacon costs more money."
                 <<" You didn’t put enough bacon in my burger! If you did,"
-                <<" I wouldn’t be asking for more!"<< std::endl;
+                <<" I wouldn’t be asking for more!\n"<< std::endl;
 }
 
 void Harl::warning(void)
@@ -35,7 +35,7 @@ void Harl::warning(void)
     std::cout << "[ WARNING ]" << std::endl;
     std::cout << "I think I deserve to have some extra bacon for free.\n" 
                 <<"I’ve been coming for years whereas you started working"
-                <<" here since last month." << std::endl;
+                <<" here since last month.\n" << std::endl;
 }
 
 void Harl::error(void)
