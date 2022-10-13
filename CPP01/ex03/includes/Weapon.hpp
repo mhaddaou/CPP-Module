@@ -6,7 +6,7 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 22:35:28 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/07 13:33:52 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/09 17:33:30 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@
 
 class Weapon{
     public:
+       
         Weapon(std::string type);
+        Weapon(std::string *_type);
         void setType(std::string type);
         std::string getType();
+        bool checkEmptyString(const std::string &n);
+        ~Weapon();
     private:
         std::string _type;
     
