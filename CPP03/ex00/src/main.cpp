@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 04:50:29 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/16 04:51:53 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/16 00:48:25 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main ()
 {
-    ClapTrap med("med", 10, 10 , 10);
+    ClapTrap med("med");
     med.attack("haddaoui");
 }
