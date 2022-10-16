@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 03:15:51 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/16 00:53:30 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:53:46 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 
 class ClapTrap{
-    private:
+    protected:
        std::string name;
        unsigned int hitPoints ; // hada dem dyalk
        unsigned int energyPoint;    // l9owa dyalk

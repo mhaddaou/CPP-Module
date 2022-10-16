@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/16 02:56:19 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/16 02:57:56 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/16 15:08:41 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Inheritance
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = src/ClapTrap.cpp src/main.cpp
+SRC = src/ClapTrap.cpp src/main.cpp src/ScavTrap.cpp
 CC = c++
-HEADER = include/ClapTrap.hpp
+HEADER = include/ClapTrap.hpp include/ScavTrap.hpp
 RM = rm -rf
 
 
