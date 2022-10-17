@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 03:03:08 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/17 17:38:39 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:40:13 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ Dog::Dog(std::string _type){
     std::cout << type << " constructor parameterize is called" << std::endl;
 }
 
-Dog::Dog (const Dog& other){
-    *this = other;
+
+Dog::Dog(Dog const &other): Animal(other)
+{
+	this->_brain = new Brain(*other._brain);
     std::cout << type << " copy constructor is called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 15:56:25 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/17 18:01:56 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:51:22 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,7 @@ std::string const	&Brain::getIdea(int const &index) const
 	if (index >= 0 && index < 100)
 		return (this->ideas[index]);
 	return (this->ideas[0]);
+}
+Brain::~Brain(){
+    std::cout << "Brain destructor is called" << std::endl;
 }

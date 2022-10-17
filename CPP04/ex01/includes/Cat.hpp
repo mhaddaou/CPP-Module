@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 02:58:48 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/17 17:36:57 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:50:04 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ class Cat: public Animal{
     public:
         Cat();
         Cat(std::string _type);
-        Cat (const Cat& _other);
+        Cat(Cat const &other);
         Cat& operator=(const Cat& _other);
         ~Cat();
         void makeSound() const;
+        void setBrain(Brain const &Brain);
+        Brain & getBrain(void) const;
     private:
         Brain* _brain;
         

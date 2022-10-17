@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 03:04:41 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/17 17:38:21 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:37:08 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,20 @@ Cat::Cat(){
     _brain = new Brain();
     std::cout << type << " default constructor is called " << std::endl;
 }
-Cat::Cat(std::string _type){
+Cat::Cat(std::string _type): Animal(_type){
     type = _type;
     _brain = new Brain();
     std::cout << type << " parameterize constructor is called " << std::endl;    
 }
 
-Cat::Cat(const Cat& other){
-    *this = other;
-    std::cout << type << " copy constructor is called " << std::endl;
+
+Cat::Cat(Cat const &other): Animal(other)
+{
+	*this = other;
+	this->_brain = new Brain(*other._brain);
+	std::cout << type << " copy constructor is called" << std::endl;
 }
+
 Cat& Cat::operator=(const Cat& other){
     type = other.type;
     _brain = other._brain;
@@ -43,4 +47,13 @@ Cat::~Cat(){
 
 void Cat::makeSound() const {
     std::cout << "meow!" << std::endl;
+}
+
+void	Cat::setBrain(Brain const &brain)
+{
+	*this->_brain = brain;
+}
+Brain &Cat::getBrain(void) const
+{
+	return (*this->_brain);
 }
