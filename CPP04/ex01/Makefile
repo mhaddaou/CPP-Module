@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
+#    By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 02:51:41 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/17 02:05:43 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/17 17:43:48 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Polymorphism
-#FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = src/main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongCat.cpp src/WrongAnimal.cpp
+FLAGS = -Wall -Wextra -Werror -std=c++98
+SRC = src/main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongCat.cpp src/WrongAnimal.cpp src/Brain.cpp
 CC = c++
-HEADER = includes/Animal.hpp includes/Cat.hpp includes/Dog.hpp includes/WrongCat.hpp includes/WrongAnimal.hpp
+HEADER = includes/Animal.hpp includes/Cat.hpp includes/Dog.hpp includes/WrongCat.hpp includes/WrongAnimal.hpp includes/Brain.hpp
 RM = rm -rf
 
 

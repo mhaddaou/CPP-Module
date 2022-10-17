@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 03:00:02 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/17 01:25:36 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:37:01 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal{
     public:
         Dog();
         Dog(std::string _type);
         Dog (const Dog& other);
-        using Animal::operator=;
+        Dog& operator=(const Dog & other);
         ~Dog();
         void makeSound() const;
+    private:
+        Brain* _brain;
 };
 
 #endif
