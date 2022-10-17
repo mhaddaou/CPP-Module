@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:12:06 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/17 17:29:39 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:02:34 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,16 @@
 #include <string>
 
 class Brain{
-    protected:
+    private:
         std::string ideas[100];
+    public:
+        Brain();
+        Brain (const Brain& other);
+        Brain& operator=(const Brain& other);
+        ~Brain();
+        void setIdea(std::string const &_idea, int const &index);
+        std::string const	&getIdea(int const &index) const ;
+        
 };
 
 
