@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 03:06:13 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/18 01:45:45 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:08:49 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,42 @@
 
 int main ()
 {
-	{
-		Brain * bre = new Brain();
-		
-		for (int i = 0; i < 100; i++){
-			bre->setIdea("mohamed", i);
-		}
-		std::cout << bre->getIdea(0) << std::endl;
-		std::cout << bre->getIdea(90) << std::endl;
+	// const Animal	*(animal_array[100]);
+	// std::cout << std::endl;
+	// // Half filled with dogs
+	// for (int i = 0; i < 50; i++)
+	// 	animal_array[i] = new Dog();
+	// std::cout << std::endl;
 
-		delete bre;
+	// // Half filled with cats
+	// for (int i = 2; i < 50; i++)
+	// 	animal_array[i] = new Cat();
+	// std::cout << std::endl;
+	// {
+	// 	Brain * bre = new Brain();
 		
-	}
-	
-	
-	
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Dog class using copy constructor:\n" << std::endl;
-		Dog *dogA = new Dog;
-		Dog *dogB = new Dog(*dogA);
+	// 	for (int i = 0; i < 100; i++){
+	// 		bre->setIdea("mohamed", i);
+	// 	}
+	// 	std::cout << bre->getIdea(0) << std::endl;
+	// 	std::cout << bre->getIdea(90) << std::endl;
 
-		delete dogA;
-		delete dogB;
-	}
-	std::cout << "-------------------------------------\n";
+	// 	delete bre;
+		
+	// }
+	
+	
+	
+	// std::cout << "-------------------------------------\n";
+	// {
+	// 	std::cout << "Check deep copy of Dog class using copy constructor:\n" << std::endl;
+	// 	Dog *dogA = new Dog;
+	// 	Dog *dogB = new Dog(*dogA);
+
+	// 	delete dogA;
+	// 	delete dogB;
+	// }
+	// std::cout << "-------------------------------------\n";
 	{
 		std::cout << "Check deep copy of Dog class using assignment operator overload:\n" << std::endl;
 		Dog *dogA = new Dog;
@@ -54,23 +65,25 @@ int main ()
 		delete dogA;
 		delete dogB;
 	}
-	std::cout << "-------------------------------------\n";
+	// std::cout << "-------------------------------------\n";
 	{
-		std::cout << "Check deep copy of Cat class using copy constructor:\n" << std::endl;
-		Cat *catA = new Cat;
-		Cat *catB = new Cat(*catA);
+		// std::cout << "Check deep copy of Cat class using copy constructor:\n" << std::endl;
+		// Cat *catA = new Cat;
+		// Cat *catB = new Cat(*catA);
 
-		delete catA;
-		delete catB;
+		// delete catA;
+		// std::cout << "hadi " << std::endl;
+		// catB->makeSound(); 
+		// delete catB;
 	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Cat class using assignment operator overload:\n" << std::endl;
-		Cat *catA = new Cat;
-		Cat *catB = new Cat;
+	// std::cout << "-------------------------------------\n";
+	// {
+	// 	std::cout << "Check deep copy of Cat class using assignment operator overload:\n" << std::endl;
+	// 	Cat *catA = new Cat;
+	// 	Cat *catB = new Cat;
 
-		*catA = *catB;
-		delete catA;
-		delete catB;
-	}
+	// 	*catA = *catB;
+	// 	delete catA;
+	// 	delete catB;
+	// }
 }
