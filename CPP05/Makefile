@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/17 02:51:41 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/18 01:20:21 by mhaddaou         ###   ########.fr        #
+#    Created: 2022/10/19 14:32:24 by mhaddaou          #+#    #+#              #
+#    Updated: 2022/10/19 14:33:45 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Polymorphism
+NAME = Bureaucrat
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = src/main.cpp src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongCat.cpp src/WrongAnimal.cpp
+SRC = src/main.cpp src/Bureaucrat.cpp
 CC = c++
-HEADER = includes/Animal.hpp includes/Cat.hpp includes/Dog.hpp includes/WrongCat.hpp includes/WrongAnimal.hpp
+HEADER = include/Bureaucrat.hpp
 RM = rm -rf
 
 
