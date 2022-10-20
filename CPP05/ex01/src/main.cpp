@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 23:17:34 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/19 23:23:14 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:24:59 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,27 @@
 
 int main (){
     
-    const Bureaucrat med("MED", 45);
+    std::string name = "MED";
+    int grade = 5;
         try
     {
-        if ( med.getGrade() > 150)
+        if ( grade > 150)
             throw Bureaucrat::GradeTooHighException();
-        else if (med.getGrade() < 1)
+        else if (grade < 1)
             throw Bureaucrat::GradeTooLowException();
+        else
+        {
+            Bureaucrat med(grade, name);
+            med.incrementBureaucrat();
+            med.decrementBureaucrat();
+            std::cout << med.getGrade() <<std::endl;
+            std::cout << med.getName() << std::endl;
+            std::cout << med;
+        }
+            
     }
     catch (std::exception & e)
     {
-        e.what();
+        std::cout << e.what();
     }
 }

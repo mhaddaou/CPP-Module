@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:35:19 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/19 23:17:17 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:22:33 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,17 @@ Bureaucrat::Bureaucrat(Bureaucrat& other){
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other){
     _grade = other._grade;
+    return (*this);
 }
 
 Bureaucrat::~Bureaucrat(){
     std::cout << "this Bureaucrat is die" << std::endl;
 }
-int Bureaucrat::getGrade(){
+int Bureaucrat::getGrade()const {
     return (this->_grade);
 }
 
-std::string Bureaucrat::getName(){
+std::string Bureaucrat::getName()const {
     return (this->_name);
 }
 
@@ -58,4 +59,10 @@ void Bureaucrat::incrementBureaucrat(){
 
 void Bureaucrat::decrementBureaucrat(){
     this->_grade++;
+}
+
+std::ostream&operator<<(std::ostream& op, const Bureaucrat & other){
+    
+    op << other.getName() << " Bureaucrat grade " << other.getGrade() << std::endl;
+    return (op);
 }

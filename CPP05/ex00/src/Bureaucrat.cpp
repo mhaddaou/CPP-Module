@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:35:19 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/19 22:22:33 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:51:02 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,24 @@
 
 Bureaucrat::Bureaucrat() : _name("Default Bureaucrat"){
     this->_grade = 100;
+    std::cout << "Default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name , int grade) : _name(name){
-            _grade = grade;
+Bureaucrat::Bureaucrat(const std::string name , int grade) : _name(name) , _grade(grade){
+    if (grade < 1)
+        throw GradeTooHighException();
+    else if (grade > 150)
+        throw GradeTooLowException();
+    std::cout << "Parametrize Constructor Called" << std::endl;
+            
 }
 
-Bureaucrat::Bureaucrat(int grade, const std::string name) : _name(name){
-    _grade = grade;
+Bureaucrat::Bureaucrat(int grade, const std::string name) : _name(name), _grade(grade){
+    if (grade < 1)
+        throw GradeTooHighException();
+    else if (grade > 150)
+        throw GradeTooLowException();    
+    std::cout << "Parametrize Constructor Called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat& other){
@@ -34,8 +44,9 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other){
 }
 
 Bureaucrat::~Bureaucrat(){
-    std::cout << "this Bureaucrat is die" << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
+
 int Bureaucrat::getGrade()const {
     return (this->_grade);
 }

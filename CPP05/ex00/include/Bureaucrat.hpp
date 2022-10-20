@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:34:23 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/19 22:10:26 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:35:34 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Bureaucrat{
             public:
                 virtual const char* what() const throw()
                 {
-                    return ("error value too high \n");
+                    return ("ERROR value too high \n");
                 }
         };
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:34:23 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/19 23:26:55 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:10:26 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Bureaucrat{
         int getGrade() const;
         Bureaucrat operator ++ (int);
         Bureaucrat operator -- (int);
-        void incrementBureaucrat() const;
-        void decrementBureaucrat() const;
+        void incrementBureaucrat();
+        void decrementBureaucrat();
         class GradeTooLowException : public std::exception{
             public:
                 virtual const char* what() const throw()
@@ -49,6 +49,6 @@ class Bureaucrat{
         };
 };
 
-ostream& operator << (ostream& output, Bureaucrat &other);
+std::ostream& operator << (std::ostream& op, const Bureaucrat &other); 
 
 #endif
