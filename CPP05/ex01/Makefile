@@ -6,15 +6,15 @@
 #    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 14:32:24 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/19 14:33:45 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/21 00:05:36 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
-FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = src/main.cpp src/Bureaucrat.cpp
+# FLAGS = -Wall -Wextra -Werror
+SRC = src/main.cpp src/Bureaucrat.cpp src/Form.cpp
 CC = c++
-HEADER = include/Bureaucrat.hpp
+HEADER = includes/Bureaucrat.hpp includes/Form.hpp
 RM = rm -rf
 
 

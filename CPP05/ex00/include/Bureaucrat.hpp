@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:34:23 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/19 22:35:34 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/20 20:38:41 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,11 @@ class Bureaucrat{
         void decrementBureaucrat();
         class GradeTooLowException : public std::exception{
             public:
-                virtual const char* what() const throw()
-                {
-                    return ("ERROR value too low \n");
-                }
+                virtual const char* what() const throw();
         };
         class GradeTooHighException : public std::exception{
             public:
-                virtual const char* what() const throw()
-                {
-                    return ("ERROR value too high \n");
-                }
+                virtual const char* what() const throw();
         };
 };
 

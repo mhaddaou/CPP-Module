@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:35:19 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/19 23:51:02 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/20 20:40:40 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,13 @@ void Bureaucrat::incrementBureaucrat(){
 
 void Bureaucrat::decrementBureaucrat(){
     this->_grade++;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw(){
+    return ("ERROR \t Value to high");
+}
+const char* Bureaucrat::GradeTooLowException::what() const throw(){
+    return ("ERROR \t Value to low");
 }
 
 std::ostream&operator<<(std::ostream& op, const Bureaucrat & other){
