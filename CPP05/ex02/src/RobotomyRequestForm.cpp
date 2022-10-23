@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 23:44:17 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/23 17:43:47 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:15:07 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,14 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 std::string RobotomyRequestForm::getTarget() const{
     return (_target);
 }
-static int robot_fail = 0;
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor)const{
-    if (executor.getGrade() > this->getGradeToexecuted())
-        throw GradeTooLowException();
-    else if (this->getIsSigned() == false)
+    if (this->getIsSigned() == false)
         throw FormIsnotSigned();
-    else if (robot_fail++ % 2)
-		std::cout << "BRRRRRRRRRRRRRR\n" << this->getTarget() << " was robotomized" << std::endl;
-    else
-		std::cout << "Robotomy failed" << std::endl;
+    else if (executor.getGrade() > this->getGradeToexecuted())
+		std::cout << "Robotomy failed" << std::endl;       
+    else{
+        std::cout << "BRRRRRRRRRRRRRR\n\t" << this->getTarget() << 
+        " has been robotomized successfully 50% of the time." << std::endl;
+    }
 }
