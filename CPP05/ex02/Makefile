@@ -6,17 +6,17 @@
 #    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 14:32:24 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/21 00:05:36 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/22 23:59:26 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
 # FLAGS = -Wall -Wextra -Werror
-SRC = src/main.cpp src/Bureaucrat.cpp src/Form.cpp
+SRC = src/main.cpp src/Bureaucrat.cpp src/Form.cpp src/ShrubberyCreationForm.cpp src/RobotomyRequestForm.cpp 
 CC = c++
-HEADER = includes/Bureaucrat.hpp includes/Form.hpp
+HEADER = includes/Bureaucrat.hpp includes/Form.hpp includes/ShrubberyCreationForm.hpp includes/RobotomyRequestForm.hpp
 RM = rm -rf
-
+FILE = *_shrubbery;
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c -o $@ $<
@@ -32,6 +32,6 @@ clean:
 	${RM} ${OBJ}
 	
 fclean: clean
-	${RM} ${NAME}
+	${RM} ${NAME} ${FILE}
 
 re : fclean all

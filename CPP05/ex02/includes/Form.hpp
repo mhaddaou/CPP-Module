@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:51:45 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/21 00:01:16 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:42:38 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,13 @@ class Form{
             public:
                 virtual const char * what() const throw();
         };
+        class FormIsnotSigned : public std::exception{
+            public:
+                virtual const char * what() const throw();
+        };
         void beSigned(Bureaucrat & bureaucrat);
         void signForm(Bureaucrat& bureaucrat);
+        virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator <<(std::ostream& op, const Form & other);

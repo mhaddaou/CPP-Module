@@ -6,14 +6,13 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:14:43 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/21 01:12:04 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:05:09 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Form.hpp"
 
-Form::Form() :_name("Default Form"), _gradeToSigned(1),_gradeToexecuted(1){
-    std::cout << "Form default constuctor called" << std::endl;
+Form::Form() :_name("Default Form"), _gradeToSigned(10),_gradeToexecuted(10){
     this->_isSigned = false;
 }
 
@@ -22,7 +21,6 @@ Form::Form(const std::string name, const int gs, const int ge):_name(name), _gra
         throw GradeTooHighException();
     else if (gs > 150)
         throw GradeTooLowException();
-    std::cout << "Form parameterize constructor called" << std::endl;
     this->_isSigned = false;
 }
 
@@ -41,20 +39,16 @@ int Form::getGradeToSigned() const{
 }
 
 Form::Form (const Form& other) :_name(other._name), _gradeToexecuted(other._gradeToexecuted), _gradeToSigned(other._gradeToSigned){
-    std::cout << "Form copy constructor called" << std::endl;
     this->_isSigned = other.getIsSigned();
     *this = other;
 }
 
 Form& Form::operator=(const Form& other){
-    std::cout << "Form copy assigment operator called" << std::endl;
     this->_isSigned = other.getIsSigned();
     return (*this);
 }
 
-Form::~Form(){
-    std::cout << "Form destructor called" << std::endl;
-}
+Form::~Form(){}
 
 const char * Form::GradeTooHighException::what() const throw(){
     return ("ERROR \t Grade to high");
@@ -63,6 +57,10 @@ const char * Form::GradeTooHighException::what() const throw(){
 const char* Form::GradeTooLowException::what() const throw(){
     return ("ERROR \t Grade is to low");
 }
+const char* Form::FormIsnotSigned::what() const throw(){
+    return ("ERROR \t this form is not signed");
+}
+
 
 void Form::beSigned(Bureaucrat &bureaucrat){
     if (bureaucrat.getGrade() > _gradeToSigned)
@@ -71,7 +69,7 @@ void Form::beSigned(Bureaucrat &bureaucrat){
 }
 
 void Form::signForm(Bureaucrat & bureaucrat){
-    if (_isSigned == true && bureaucrat.getGrade() < _gradeToSigned){
+    if (_isSigned == true && bureaucrat.getGrade() <= _gradeToSigned){
         std::cout << bureaucrat.getName() << " signed "
                   << getName() << std::endl; 
     }

@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:34:23 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/20 20:38:41 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/22 23:10:52 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class Bureaucrat{
             public:
                 virtual const char* what() const throw();
         };
+        // void  executeForm(Form const & form) const ;
 };
 
 std::ostream& operator << (std::ostream& op, const Bureaucrat &other); 
