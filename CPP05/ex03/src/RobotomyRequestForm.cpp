@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 23:44:17 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/24 14:03:22 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:10:13 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 RobotomyRequestForm::RobotomyRequestForm(): Form("Default form", 72, 45){
     _target = "med";
 }
-RobotomyRequestForm::RobotomyRequestForm(std::string target): Form(target, 72, 45){
+RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("robotomy", 72, 45){
     _target = target;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 19:28:28 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/24 14:01:06 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:10:37 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ShrubberyCreationForm::ShrubberyCreationForm():Form("Default Form", 145, 137){
     _target = "med";
 }
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target):Form(target, 145, 137){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):Form("shrubbery", 145, 137){
     _target = target;
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & other) : Form(other){}

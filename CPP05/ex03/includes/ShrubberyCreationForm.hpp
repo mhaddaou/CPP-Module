@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 13:28:19 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/23 19:10:29 by mhaddaou         ###   ########.fr       */
+/*   Created: 2022/10/22 13:22:39 by mhaddaou          #+#    #+#             */
+/*   Updated: 2022/10/22 19:57:23 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include "Form.hpp"
 
-class PresidentialPardonForm : public Form{
+class ShrubberyCreationForm : public Form{
     private:
         std::string _target;
     public:
-        PresidentialPardonForm();
-        PresidentialPardonForm(std::string target);
-        PresidentialPardonForm (const PresidentialPardonForm &other);
-        PresidentialPardonForm& operator=(const PresidentialPardonForm & other);
-        ~PresidentialPardonForm();
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(std::string target);
+        ShrubberyCreationForm(const ShrubberyCreationForm & other);
+        ShrubberyCreationForm & operator=(const ShrubberyCreationForm & other);
+        ~ShrubberyCreationForm();
         std::string getTarget() const;
         void execute(Bureaucrat const &executor)const;
-      
 };
+
+
 #endif

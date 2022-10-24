@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 13:28:19 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/23 19:10:29 by mhaddaou         ###   ########.fr       */
+/*   Created: 2022/10/22 13:23:19 by mhaddaou          #+#    #+#             */
+/*   Updated: 2022/10/22 23:43:38 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "Form.hpp"
 
-class PresidentialPardonForm : public Form{
+class RobotomyRequestForm: public Form{
     private:
         std::string _target;
     public:
-        PresidentialPardonForm();
-        PresidentialPardonForm(std::string target);
-        PresidentialPardonForm (const PresidentialPardonForm &other);
-        PresidentialPardonForm& operator=(const PresidentialPardonForm & other);
-        ~PresidentialPardonForm();
+        RobotomyRequestForm();
+        RobotomyRequestForm(std::string target);
+        RobotomyRequestForm (const RobotomyRequestForm& other);
+        RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
+        ~RobotomyRequestForm();
         std::string getTarget() const;
         void execute(Bureaucrat const &executor)const;
-      
 };
+
 #endif

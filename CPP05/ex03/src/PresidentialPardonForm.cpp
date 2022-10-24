@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 18:19:46 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/24 14:03:49 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:10:51 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 PresidentialPardonForm::PresidentialPardonForm(): Form("Default form", 25, 5){
     _target = "Default name";
 }
-PresidentialPardonForm::PresidentialPardonForm(std::string target):Form(target, 25, 5){
+PresidentialPardonForm::PresidentialPardonForm(std::string target):Form("presidential", 25, 5){
     _target = target;
 }
 
