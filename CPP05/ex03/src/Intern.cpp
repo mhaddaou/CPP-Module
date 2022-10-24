@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:41:08 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/24 15:55:46 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 00:22:36 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,39 +17,44 @@ Intern::Intern (const Intern& other){
     *this = other;
 }
 Intern& Intern::operator=(const Intern& other){
-    return (*this);   
+    
+    if (this == &other)
+		return *this;
+	return *this;  
 }
 Intern::~Intern(){}
 
-Form* Intern::robotomy(std::string target)const {
+Form* robotomy(std::string target){
     Form *form = new RobotomyRequestForm(target);
     return (form);
 }
-Form* Intern::shrubbery(std::string target)const {
-    Form* form = new ShrubberyCreationForm(target);
-    return (form);
+Form* shrubbery(std::string target) {
+    return (new ShrubberyCreationForm(target));
 }
-Form* Intern::presidential(std::string target)const {
+Form* presidential(std::string target) {
     Form *form = new PresidentialPardonForm(target);
     return (form);
 }
 
-Form *Intern::makeForm(std::string nameForm, std::string targetForm) const{
+
+
+Form *Intern::makeForm(std::string nameForm, std::string targetForm){
     
     Form *form;
     int i = 0;
-    std::string Forms[]{
+    std::string Forms[3]={
         "robotomy request",
         "shrubbery creation",
         "presidential pardon"
     };
-    Form* (Intern::*ptrFuncs[3])(std::string){
-        &Intern::robotomy(targetForm),
-        &Intern::shrubbery(targetForm),
-        &Intern::presidential(targetForm)
+    Form * (*ptrFuncs[])(std::string) = {
+        &robotomy,
+        &shrubbery,
+        &presidential
     };
     while(Forms[i] != nameForm)
         i++;
-    std::cout <<" i == " << i << std::endl;
+    printf("%d\n", i);
+    form = (*ptrFuncs[i])(targetForm);
     return form;    
 }
