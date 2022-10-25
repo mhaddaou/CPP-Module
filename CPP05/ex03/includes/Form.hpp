@@ -6,7 +6,7 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:51:45 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/24 23:01:12 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 01:51:22 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Form{
         Form(const std::string name, const int gs, const int ge);
         Form (const Form& other);
         Form& operator=(const Form& other);
-        ~Form();
+        virtual ~Form();
         std::string getName() const;
         bool getIsSigned() const;
         int getGradeToSigned() const;
@@ -42,6 +42,10 @@ class Form{
                 virtual const char * what() const throw();
         };
         class FormIsnotSigned : public std::exception{
+            public:
+                virtual const char * what() const throw();
+        };
+        class FormNotFound: public std::exception{
             public:
                 virtual const char * what() const throw();
         };

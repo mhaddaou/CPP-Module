@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 23:17:34 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/19 23:56:01 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 02:20:19 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
   int main()
 {
-	Bureaucrat b("mohamed", 2);
-	Bureaucrat d;
 
 	try
 	{
-		// b.incrementBureaucrat();
-	    Bureaucrat c("haddaoui", 0);
-		// b.incrementBureaucrat();
+	    Bureaucrat c("haddaoui", 1);
+		c.incrementBureaucrat();
         std::cout << c.getName() << std::endl;
         c.decrementBureaucrat();
 		std::cout << c << std::endl;

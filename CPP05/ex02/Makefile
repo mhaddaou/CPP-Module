@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
+#    By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 14:32:24 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/24 14:21:32 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/25 02:07:14 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
-# FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 SRC = src/main.cpp src/Bureaucrat.cpp src/Form.cpp src/ShrubberyCreationForm.cpp src/RobotomyRequestForm.cpp src/PresidentialPardonForm.cpp
 CC = c++
 HEADER = includes/Bureaucrat.hpp includes/Form.hpp includes/ShrubberyCreationForm.hpp includes/RobotomyRequestForm.hpp includes/PresidentialPardonForm.hpp

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:14:43 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/21 01:12:04 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 02:14:14 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Form::Form() :_name("Default Form"), _gradeToSigned(1),_gradeToexecuted(1){
     this->_isSigned = false;
 }
 
-Form::Form(const std::string name, const int gs, const int ge):_name(name), _gradeToexecuted(ge), _gradeToSigned(gs){
+Form::Form(const std::string name, const int gs, const int ge):_name(name), _gradeToSigned(gs), _gradeToexecuted(ge){
     if (gs < 1)
         throw GradeTooHighException();
     else if (gs > 150)
@@ -40,7 +40,7 @@ int Form::getGradeToSigned() const{
     return (this->_gradeToSigned);
 }
 
-Form::Form (const Form& other) :_name(other._name), _gradeToexecuted(other._gradeToexecuted), _gradeToSigned(other._gradeToSigned){
+Form::Form (const Form& other) :_name(other._name), _gradeToSigned(other._gradeToSigned), _gradeToexecuted(other._gradeToexecuted){
     std::cout << "Form copy constructor called" << std::endl;
     this->_isSigned = other.getIsSigned();
     *this = other;

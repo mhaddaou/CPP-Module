@@ -6,7 +6,7 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:14:43 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/24 23:02:23 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 01:45:58 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ const char* Form::GradeTooLowException::what() const throw(){
 const char* Form::FormIsnotSigned::what() const throw(){
     return ("ERROR \t this form is not signed");
 }
-
+const char *Form::FormNotFound::what() const throw(){
+    return ("ERROR \tis not found any form with this name ");
+}
 
 void Form::beSigned(Bureaucrat &bureaucrat){
     if (bureaucrat.getGrade() > _gradeToSigned)

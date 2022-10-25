@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:51:45 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/24 13:59:36 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 02:07:29 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ class Form{
         bool _isSigned;
         const int _gradeToSigned;
         const int _gradeToexecuted;
-        protected:
-            bool _isExec = false;
     public:
         Form();
         Form(const std::string name, const int gs, const int ge);
         Form (const Form& other);
         Form& operator=(const Form& other);
-        ~Form();
+        virtual ~Form();
         std::string getName() const;
         bool getIsSigned() const;
         int getGradeToSigned() const;

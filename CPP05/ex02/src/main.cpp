@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 23:17:34 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/23 20:41:52 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 02:11:41 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main (){
 
 	std::cout << "ShrubberyCreationForm" << std::endl;
 	{
-		ShrubberyCreationForm med("med");
+		ShrubberyCreationForm med("wati9a");
 		Bureaucrat MED("med", 45);
 		try{
 			med.beSigned(MED);
@@ -33,15 +33,33 @@ int main (){
 		std::cerr << e.what() << std::endl;	
 		}
 	}
+	// RobotomyRequestForm: Required grades: sign 72, exec 45
+	std::cout << "RobotomyRequestForm" << std::endl;
+	{
+		RobotomyRequestForm med("med");
+		Bureaucrat MED("med", 72);
+		try{
+			med.beSigned(MED);
+			med.execute(MED);
+			MED.executeForm(med);
+		}
+		catch(std::exception & e){
+		std::cerr << e.what() << std::endl;	
+		}
+	}
+	//PresidentialPardonForm: Required grades: sign 25, exec 5
 	
-	// RobotomyRequestForm med("nice");
-	// Bureaucrat ll("med", 46);
-	// try{
-	// 	med.beSigned(ll);
-	// 	med.execute(ll);
-	// }
-	// catch(std::exception& e){
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
+	std::cout << "PresidentialPardonForm" << std::endl;
+	{
+		PresidentialPardonForm med("wati9a");
+		Bureaucrat MED("med", 5);
+		try{
+			med.beSigned(MED);
+			med.execute(MED);
+			MED.executeForm(med);
+		}
+		catch(std::exception & e){
+		std::cerr << e.what() << std::endl;	
+		}
+	}
 }

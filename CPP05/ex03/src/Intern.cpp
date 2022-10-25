@@ -6,7 +6,7 @@
 /*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:41:08 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/25 00:22:36 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 01:49:31 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ Form* presidential(std::string target) {
     return (form);
 }
 
-
-
 Form *Intern::makeForm(std::string nameForm, std::string targetForm){
     
-    Form *form;
+    Form *form = NULL;
     int i = 0;
     std::string Forms[3]={
         "robotomy request",
@@ -52,9 +50,13 @@ Form *Intern::makeForm(std::string nameForm, std::string targetForm){
         &shrubbery,
         &presidential
     };
-    while(Forms[i] != nameForm)
+    while(Forms[i] != nameForm && i < 3)
         i++;
-    printf("%d\n", i);
-    form = (*ptrFuncs[i])(targetForm);
+    if (i >= 0 && i < 3){
+        form = (*ptrFuncs[i])(targetForm);
+        std::cout << "Intern creates " << form->getName() << std::endl;
+        return (form); 
+    }
+    throw Form::FormNotFound();
     return form;    
 }

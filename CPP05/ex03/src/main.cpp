@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 23:17:34 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/24 15:31:28 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 01:52:53 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,19 @@
 #include "../includes/PresidentialPardonForm.hpp"
 #include "../includes/Intern.hpp"
 int main (){
-
-	// ShrubberyCreationForm: Required grades: sign 145, exec 137
-
-	// std::cout << "ShrubberyCreationForm" << std::endl;
-	// {
-	// 	ShrubberyCreationForm med("med");
-	// 	Bureaucrat MED("med", 45);
-	// 	try{
-	// 		med.beSigned(MED);
-	// 		med.execute(MED);
-	// 		MED.executeForm(med);
-	// 	}
-	// 	catch(std::exception & e){
-	// 	std::cerr << e.what() << std::endl;	
-	// 	}
-	// }
 	
-	// RobotomyRequestForm med("nice");
-	// Bureaucrat ll("med", 46);
-	// try{
-	// 	med.beSigned(ll);
-	// 	med.execute(ll);
-	// }
-	// catch(std::exception& e){
-	// 	std::cerr << e.what() << std::endl;
-	// }
 	Intern someRandomIntern;
 	Form* rrf;
-	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+	
+	try{
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		delete rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "med");
+		delete rrf;	
+	}
+	catch(std::exception& e){
+		std::cerr << e.what() << std::endl;
+	}
+	
 	
 }
