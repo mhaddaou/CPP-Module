@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 23:20:13 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/27 05:13:23 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:09:05 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ Conversion::Conversion(std::string str){
     else
         throw Conversion::InvalidInput();
     
+}
+void Conversion::convertFloatToAll(std::string str) const{
+    std::cout << "the n is float" << std::endl;
+    int number = atoi(str.c_str());
+    std::cout << "number" << std::endl;
 }
 
 void Conversion::convertIntToALL(std::string str) const{
@@ -148,15 +153,19 @@ int Conversion::checkIsFloat(std::string str) const{
                 f++;
         }
     }
-    if ((point =! 1) || (f != 1))
+    if ((f != 1) || point > 1)
         return (1);
-    for(i = 0; str[i]; i++){
+    i = 0;
+    while (str[i]){
         if (!isdigit(str[i])){
-            if (str[i] == '.' || str[i] == 'f')
-                i++;
-            else
+            if (str[i] == '.' && str[i+1] == 'f')
+                return (1);
+            if (str[i] != 'f' && str[i] != '.')
                 return (1);
         }
+        
+        std::cout << i << std::endl;
+        i++;
     }
     return (0);
 }
@@ -175,7 +184,7 @@ int Conversion::checkIsDouble(std::string str) const{
     else{
         for(i=0; str[i]; i++){
             if (i == index)
-                i++;
+                continue;
             else if (!isdigit(str[i]))
                 return (1);
         }
