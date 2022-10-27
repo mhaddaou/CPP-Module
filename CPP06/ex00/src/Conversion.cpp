@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 23:20:13 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/27 15:09:05 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/27 21:03:07 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,8 @@ int Conversion::checkIsDouble(std::string str) const{
         }
     }
     if (p != 1)
+        return (1);
+    else if (str[str.length()-1] == '.')
         return (1);
     else{
         for(i=0; str[i]; i++){
