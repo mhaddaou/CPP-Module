@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:51:48 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/27 15:24:07 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:24:28 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <ctype.h>
 #include <cctype>
 #include <cstdlib>
+#include <bits/stdc++.h>
+
 
 class Conversion{
     private:
@@ -68,6 +70,7 @@ class Conversion{
         void convertIntToFloat(int number) const;
         void convertIntToDouble(int number) const;
         void convertFloatToAll(std::string str) const;
+        std::string removeF(std::string str) const;
 };
 
 void convertAll(int number);

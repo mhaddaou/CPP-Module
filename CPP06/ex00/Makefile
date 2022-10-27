@@ -6,12 +6,12 @@
 #    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 15:06:14 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/27 13:33:16 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/27 16:23:20 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cast
-# FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = src/main.cpp src/Conversion.cpp
 CC = c++
 HEADER = include/Conversion.hpp

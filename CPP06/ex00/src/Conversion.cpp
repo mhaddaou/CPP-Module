@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 23:20:13 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/27 21:03:07 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:24:13 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,21 @@ Conversion::Conversion(std::string str){
     
 }
 void Conversion::convertFloatToAll(std::string str) const{
-    std::cout << "the n is float" << std::endl;
-    int number = atoi(str.c_str());
-    std::cout << "number" << std::endl;
+    // std::string copystr = removeF(str);
+    // std::cout << "str is = " <<copystr << std::endl;
+    // int number = atoi(str.c_str());
+    // std::string str = "123.4567";
+
+    // convert string to float
+    float num_float = std::stof(str);
+    
+
+    std::cout << "number is  == " << num_float <<  std::endl;
 }
 
+std::string Conversion::removeF(std::string str) const {
+    return (str.erase(str.length() - 1));
+}
 void Conversion::convertIntToALL(std::string str) const{
     int number = atoi(str.c_str());
     Conversion::convertIntToChar(number);
