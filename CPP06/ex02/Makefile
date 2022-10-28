@@ -6,12 +6,12 @@
 #    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 03:45:17 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/28 04:04:10 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/28 13:01:59 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = realType
-FLAGS = -Wall -Wextra -Werror -std=c++98
+# FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = src/main.cpp src/Base.cpp
 CC = c++
 HEADER = includes/Base.hpp includes/Classes.hpp
