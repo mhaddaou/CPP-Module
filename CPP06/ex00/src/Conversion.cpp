@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 23:20:13 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/27 16:24:13 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/28 06:40:36 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,87 @@ Conversion::Conversion(std::string str){
     copystr = Conversion::checkIsPoN(str, &sign);
     if (Conversion::chckIsInteger(copystr) == 0)
         Conversion::convertIntToALL(copystr);
+    else if (Conversion::checkIsNan(copystr) == 0)
+        Conversion::isNan();
     else if (Conversion::checkIsFloat(copystr) == 0)
         Conversion::convertFloatToAll(copystr);
     else if (Conversion::checkIsDouble(copystr) == 0)
-        std::cout << "is double" << std::endl;
+        Conversion::convertDoubleToALL(copystr);
     else if (Conversion::checkIsChar(copystr) == 0)
-        std::cout << "is char" << std::endl;
+        Conversion::convertCharToALL(copystr);
     else
         throw Conversion::InvalidInput();
     
 }
+void Conversion::isNan(void) const{
+    std::cout << "char: impossible" << std::endl;
+    std::cout <<"int: impossible" << std::endl;
+    std::cout <<"float: nanf" << std::endl;
+    std::cout << "double: nan" << std::endl;
+}
+int Conversion::checkIsNan(std::string str) const{
+    if (str == "nan")
+        return (0);
+    return (1);
+}
+void Conversion::convertCharToALL(std::string str) const{
+    char c = str[0];
+    std::cout << "char: "   << c << std::endl;
+    int t = static_cast<int>(c);
+    std::cout << "int: " << t << std::endl;
+    convertIntToFloat(t);
+    convertIntToDouble(t);
+}
+void Conversion::convertCharToInt(std::string str) const{
+    int n = atoi(str.c_str());
+    n *= sign;
+    std::cout << "int: " << n << std::endl; 
+}
+void Conversion::convertDoubleToALL(std::string str) const{
+    double d = std::stod(str);
+    int num_int = static_cast<int>(d);
+    convertIntToChar(num_int * sign);
+    printInt(num_int);
+    printFloat(d,str);
+    convertFloatToDouble(static_cast<float>(d), str);
+}
 void Conversion::convertFloatToAll(std::string str) const{
-    // std::string copystr = removeF(str);
-    // std::cout << "str is = " <<copystr << std::endl;
-    // int number = atoi(str.c_str());
-    // std::string str = "123.4567";
-
-    // convert string to float
     float num_float = std::stof(str);
+    int num_int = static_cast<int>(num_float);
+    convertIntToChar(num_int * sign);
+    printInt(num_int);
+    printFloat(num_float, str);
+    convertFloatToDouble(num_float, str);
+}
+void Conversion::convertFloatToDouble(float num, std::string str) const{
+    std::cout <<"double: ";
+     int point = 0;
+    for(int i=0; str[i];i++){
+        if (str[i] == '.')
+            if (str[i + 1] != '0')
+                point = 1;
+    }
+    num *= sign;
+    double d = static_cast<double>(num);
+    if (point == 1)
+        std::cout << d << std::endl;
+    else
+        std::cout << d << ".0" << std::endl;
     
-
-    std::cout << "number is  == " << num_float <<  std::endl;
+}
+void Conversion::printFloat(float num, std::string str) const{
+    int point = 0;
+    for(int i=0; str[i];i++){
+        if (str[i] == '.')
+            if (str[i + 1] != '0')
+                point = 1;
+    }
+    num *= sign;
+    std::cout << "float: " ;
+    if (point == 1)
+        std::cout << num << "f" << std::endl;
+    else
+        std::cout << num << ".0f" << std::endl;
 }
 
 std::string Conversion::removeF(std::string str) const {
@@ -155,14 +215,21 @@ int Conversion::checkIsFloat(std::string str) const{
     int i = 0;
     int point = 0;
     int f = 0;
+    int indexfloat;
+    if (str.length() == 1)
+        return (1);
     for (;str[i];i++){
         if (str[i] == '.' || str[i] == 'f'){
             if (str[i] == '.')
                 point++;
-            else
+            else{
                 f++;
+                indexfloat = i;
+            }
         }
     }
+    if (str[indexfloat + 1] != '\0')
+        return (1);
     if ((f != 1) || point > 1)
         return (1);
     i = 0;
@@ -173,8 +240,6 @@ int Conversion::checkIsFloat(std::string str) const{
             if (str[i] != 'f' && str[i] != '.')
                 return (1);
         }
-        
-        std::cout << i << std::endl;
         i++;
     }
     return (0);

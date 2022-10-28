@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:51:48 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/27 16:24:28 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/28 06:29:51 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,13 @@ class Conversion{
         void convertIntToDouble(int number) const;
         void convertFloatToAll(std::string str) const;
         std::string removeF(std::string str) const;
+        void printFloat(float num, std::string str) const;
+        void convertFloatToDouble(float num,std::string str) const;
+        void convertDoubleToALL(std::string str) const;
+        void convertCharToALL(std::string str) const;
+        void convertCharToInt(std::string str) const;
+        int checkIsNan(std::string str) const;
+        void isNan(void) const;
 };
 
 void convertAll(int number);
