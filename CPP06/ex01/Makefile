@@ -3,18 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 07:08:02 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/28 07:09:38 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/28 02:38:46 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cast
+NAME = reinterpret
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = src/main.cpp src/Reinterpret.cpp
+SRC = src/main.cpp
 CC = c++
-HEADER = include/Reinterpret.hpp
 RM = rm -rf
 
 
@@ -25,7 +24,7 @@ OBJ = $(SRC:%.cpp=%.o)
 
 all: ${NAME}
 
-${NAME} : ${OBJ} ${HEADER}
+${NAME} : ${OBJ}
 	${CC} ${FLAGS} ${OBJ} -o ${NAME}  
 
 clean:
