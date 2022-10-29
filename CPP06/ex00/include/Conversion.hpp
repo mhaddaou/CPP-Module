@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:51:48 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/28 22:20:32 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/29 05:47:37 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ class Conversion{
         void convertCharToInt(std::string str) const;
         int checkIsNan(std::string str) const;
         void isNan(void) const;
+        int morNorP(std::string str) const;
+        int checkIspseudo(std::string str) const;
+        void printPseudo(std::string str) const;
 };
 
 void convertAll(int number);

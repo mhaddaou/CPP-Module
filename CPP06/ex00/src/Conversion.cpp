@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 23:20:13 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/28 22:33:00 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/29 06:03:20 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ Conversion::Conversion(){}
 
 Conversion::Conversion(std::string str){
     std::string copystr;
-    copystr = Conversion::checkIsPoN(str, &sign);
-    // if (!(copystr[0]))
     sign = 1;
-    //     throw MoreNegOrPositive();
+    copystr = Conversion::checkIsPoN(str, &sign);
     if (Conversion::chckIsInteger(copystr) == 0)
         Conversion::convertIntToALL(copystr);
     else if (Conversion::checkIsNan(copystr) == 0)
@@ -30,9 +28,38 @@ Conversion::Conversion(std::string str){
         Conversion::convertDoubleToALL(copystr);
     else if (Conversion::checkIsChar(copystr) == 0)
         Conversion::convertCharToALL(copystr);
+    else if (Conversion::morNorP(copystr) == 0)
+        throw Conversion::MoreNegOrPositive();
+    else if (Conversion::checkIspseudo(copystr) == 0)
+        printPseudo(str);
     else
         throw Conversion::InvalidInput();
+}
+void Conversion::printPseudo(std::string str) const{
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    if (sign > 0){
+        std::cout << "float: +inff" << std::endl;
+        std::cout << "double: +inf" << std::endl;
+    }
+    else{
+        std::cout << "float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
+    }
     
+}
+int Conversion::checkIspseudo(std::string str) const {
+    if (str == "inff" || str == "inf")
+        return (0);
+    return (1);
+}
+int Conversion::morNorP(std::string str) const{
+    int i = 0;
+    for(; str[i]; i++){
+        if (str[i] == '-' || str[i] == '+')
+            return (0);
+    }
+    return (1);
 }
 void Conversion::isNan(void) const{
     std::cout << "char: impossible" << std::endl;
@@ -138,17 +165,15 @@ void Conversion::convertIntToDouble(int number) const{
 std::string Conversion::checkIsPoN(std::string str, int *ptr) const{
     int i = 0;
     std::string copystr;
-    int negpos = 0;
-    for(; str[i] == '+' || str[i] == '-'; i++){
-        negpos++;
+    if (str[0] == '-' || str[0] == '+'){
+        if (str[0] == '-')
+            *ptr *= -1;
+        else
+            *ptr *= 1;
+        copystr = str.substr(1, str.length());
+        return (copystr);
     }
-    if (negpos != 1)
-        if (negpos != 0)
-            return (0);
-    copystr = str.substr(i, str.length());
-    if (str[0] == '-')
-        *ptr *= -1;
-    return (copystr);    
+    return (str);
 }
 
 Conversion::Conversion(const Conversion & other){
@@ -173,9 +198,9 @@ int Conversion::chckIsInteger(std::string str) const{
             return (1);
         i++;
     }
+    if (sign == -1)
+        str.insert(0,"-");
     int A = atoi(str.c_str());
-    std::cout << A << std::endl;
-    std::cout << str << std::endl;
     if (str != std::to_string(A))
         return (1);    
     return (0);
