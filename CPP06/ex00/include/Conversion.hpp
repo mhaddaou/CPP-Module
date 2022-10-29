@@ -6,7 +6,7 @@
 /*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:51:48 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/28 21:53:55 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/28 22:20:32 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ class Conversion{
                 virtual const char * what() const throw();
         };
         class InvalidInput : public std::exception{
+            public:
+                virtual const char * what() const throw();
+        };
+        class MoreNegOrPositive : public std::exception{
             public:
                 virtual const char * what() const throw();
         };

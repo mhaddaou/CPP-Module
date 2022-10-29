@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 15:06:14 by mhaddaou          #+#    #+#              #
-#    Updated: 2022/10/29 02:58:33 by mhaddaou         ###   ########.fr        #
+#    Updated: 2022/10/28 22:11:45 by mhaddaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cast
-FLAGS = -Wall -Wextra -Werror -std=c++98
+# FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = src/main.cpp src/Conversion.cpp
 CC = c++
 HEADER = include/Conversion.hpp

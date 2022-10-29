@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 23:20:13 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/29 03:05:35 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/28 22:33:00 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ Conversion::Conversion(){}
 Conversion::Conversion(std::string str){
     std::string copystr;
     copystr = Conversion::checkIsPoN(str, &sign);
+    // if (!(copystr[0]))
+    sign = 1;
+    //     throw MoreNegOrPositive();
     if (Conversion::chckIsInteger(copystr) == 0)
         Conversion::convertIntToALL(copystr);
     else if (Conversion::checkIsNan(copystr) == 0)
@@ -135,16 +138,16 @@ void Conversion::convertIntToDouble(int number) const{
 std::string Conversion::checkIsPoN(std::string str, int *ptr) const{
     int i = 0;
     std::string copystr;
-    int negative = 0;
+    int negpos = 0;
     for(; str[i] == '+' || str[i] == '-'; i++){
-        if (str[i] == '-')
-            negative++;
+        negpos++;
     }
-    if (!(negative % 2))
-        *ptr = 1;
-    else
-        *ptr = -1;
+    if (negpos != 1)
+        if (negpos != 0)
+            return (0);
     copystr = str.substr(i, str.length());
+    if (str[0] == '-')
+        *ptr *= -1;
     return (copystr);    
 }
 
@@ -200,6 +203,9 @@ const char * Conversion::NotaFloat::what() const throw(){
 
 const char * Conversion::InvalidInput::what() const throw(){
     return ("ERROR: invalid input");
+}
+const char *Conversion::MoreNegOrPositive::what() const throw(){
+    return ("ERROR: more than one '-' or '+'");
 }
 
 int Conversion::checkIsNoPrintableChar(std::string str) const{
