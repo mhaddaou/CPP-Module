@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:51:48 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/28 06:29:51 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:53:55 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <cctype>
 #include <cstdlib>
 #include <bits/stdc++.h>
-
+#include <stdlib.h>
 
 class Conversion{
     private:

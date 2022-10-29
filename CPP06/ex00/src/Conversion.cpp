@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaddaou <mhaddaou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mhaddaou < mhaddaou@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 23:20:13 by mhaddaou          #+#    #+#             */
-/*   Updated: 2022/10/28 06:40:36 by mhaddaou         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:54:13 by mhaddaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,13 +169,15 @@ int Conversion::chckIsInteger(std::string str) const{
         if (!isdigit(str[i]))
             return (1);
         i++;
-    }   
-    return (0);
-}
+    }
+    int A = atoi(str.c_str());
+    // std::string str2 = static_cast<std::string>(A);
+    char *rb;
+    rb = itoa(A,rb,str.length());
+    // string str = string(intStr);
 
-void convertAll(int number){
-    std::cout << number << std::endl;
-    std::cout << "yes is number" << std::endl;
+    
+    return (0);
 }
 
 const char* Conversion::InvalidArgs::what() const throw(){
